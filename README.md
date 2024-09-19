@@ -1,12 +1,12 @@
 An Integrated Application for Detecting Objects using YOLO v8
 
 
-Overview
+Overview:
 
 
 This project is an integrated application that leverages the YOLO v8 model to detect objects in images, videos, and live webcam feeds. It provides a seamless user interface allowing users to upload images or videos, or use a live webcam for real-time object detection.
 
-Features
+Features:
 
 
 Image Detection: Upload images and detect objects with YOLO v8.
@@ -17,9 +17,18 @@ Real-Time Results: Display detected objects directly on the page without saving 
 
 
 
-Tech Stack
+Tech Stack:
 
 
 Backend: Python, Flask
 Frontend: HTML, CSS, JavaScript
 Machine Learning Model: YOLO v8 (PyTorch)
+
+
+Directory Structure:
+
+
+The .py files should be in main directory folder
+The .html files should be in templates folder in the main directory
+The  uploads should be in static folder in the main directory
+
