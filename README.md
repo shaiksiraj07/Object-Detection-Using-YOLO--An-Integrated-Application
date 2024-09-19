@@ -10,9 +10,13 @@ Features:
 
 
 Image Detection: Upload images and detect objects with YOLO v8.
+
 Video Detection: Upload video files for frame-by-frame object detection.
+
 Live Webcam Detection: Real-time object detection from live webcam feed.
+
 Dynamic User Interface: User-friendly web interface with four main buttons (Home, Image, Video, Live Webcam).
+
 Real-Time Results: Display detected objects directly on the page without saving files by default.
 
 
