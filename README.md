@@ -29,6 +29,8 @@ Directory Structure:
 
 
 The .py files should be in main directory folder
+
 The .html files should be in templates folder in the main directory
+
 The  uploads should be in static folder in the main directory
 
