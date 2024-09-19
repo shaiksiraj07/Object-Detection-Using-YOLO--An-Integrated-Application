@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video Detection</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #a2c2e2, #f6d6ad);
+            color: #333;
+            text-align: center;
+        }
+        
+        header.feature-box.top {
+            background-color: #ffffff;
+            height: 100px;
+            margin: 0;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        header.feature-box.second {
+            background-color: #00bfae;
+            height: 50px;
+            color: #ffffff;
+            margin-top: -25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .form-container {
+            background-color: #ffffff;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 12px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-container input[type="file"] {
+            padding: 10px;
+            border: 2px solid #00bfae;
+            border-radius: 8px;
+            background-color: #f5f5f5;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .form-container input[type="file"]:hover {
+            border-color: #009d8e;
+            background-color: #e0e0e0;
+        }
+        
+        .form-container button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            background-color: #00bfae;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .form-container button:hover {
+            background-color: #009d8e;
+            transform: scale(1.05);
+        }
+        
+        .output-container {
+            background-color: #ffffff;
+            width: 80%;
+            /* You can adjust this value or use a fixed width like 800px */
+            max-width: 1300px;
+            height: 800px;
+            /* Set the height as desired */
+            border-radius: 12px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            /* Ensure content stays within the container */
+        }
+        
+        .output-container video {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            background-color: #f5f5f5;
+        }
+        
+        .back-button {
+            display: inline-block;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            background-color: #00bfae;
+            color: #1a1a1a;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .back-button:hover {
+            background-color: #e1b68a;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="feature-box top">
+        <h1><strong>Object Detection using YOLOv8</strong></h1>
+    </header>
+    <header class="feature-box second">
+        <h1><strong>Input Your Video </strong></h1>
+    </header>
+
+    <section class="form-container">
+        <form method='POST' enctype="multipart/form-data">
+            {{ form.hidden_tag() }} {{ form.file(class_="custom-file-input") }}
+            <button type="submit" name="favorite" value="x">Submit</button>
+        </form>
+    </section>
+
+    <section class="output-container ">
+        <img src="{{ url_for('video') }}" alt="Upload video">
+
+    </section>
+
+    <a href="/home" class="back-button">Back to Home</a>
+</body>
+
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv8 Object Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        /* Header Navigation */
+        
+        header {
+            background-color: (45deg, plum);
+            padding: 40px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 40px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: #ecf0f1;
+            padding: 10px 20px;
+            background-color: #34495e;
+            border-radius: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: #53f1d1;
+            transform: translateY(-5px);
+        }
+        /* Hero Section */
+        
+        .hero {
+            background-image: linear-gradient(60deg, cornflowerblue, plum);
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            z-index: 1;
+            animation: fadeInUp 1.5s ease;
+        }
+        
+        .hero-content h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+            color: #fff700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-content p {
+            font-size: 22px;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #ffffff;
+        }
+        /* Keyframes */
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Overview Section */
+        
+        .overview {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #f4d0d0;
+            color: #2c3e50;
+        }
+        
+        .overview h2 {
+            font-size: 36px;
+            color: #2fdcb9;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .overview h2::after {
+            content: '';
+            width: 80px;
+            height: 5px;
+            background-color: #2c3e50;
+            display: block;
+            margin: 10px auto 0;
+        }
+        
+        .overview p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        /* Features Section */
+        
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 70px 20px;
+        }
+        
+        .feature-item {
+            width: 300px;
+            background-color: #ecf0f1;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-item img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .feature-item h3 {
+            font-size: 24px;
+            margin: 20px 0;
+            color: #34495e;
+            text-align: center;
+        }
+        /* Footer */
+        
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        
+        .overview2 {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #c5dd75;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/image_detection">Image</a></li>
+                <li><a href="/FrontPage">Video</a></li>
+                <li><a href="/webcam">Live Webcam</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1> Object Detection Using YOLO</h1>
+            <p>Experience real-time object detection with YOLO, a state-of-the-art deep learning model known for its speed and accuracy in identifying multiple objects in images and videos.</p>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview">
+        <h2>About the Project</h2>
+        <p>Explore our integrated application for advanced object detection, utilizing YOLO technology to analyze images, videos, and real-time webcam feeds with exceptional precision. Designed for ease of use, it ensures a smooth and intuitive experience
+            for detecting and identifying objects effortlessly.</p>
+    </section>
+
+    <!-- Features Section -->
+    <div class="overview2">
+        <h1>Features</h1>
+
+        <section class="features">
+
+            <div class="feature-item">
+                <img src="../webimg/userfriendly.jpg" alt="">
+                <h3>User Friendly Interface</h3>
+            </div>
+            <div class="feature-item">
+                <img src="../webimg/obtrack.png" alt="">
+                <h3>Enhanced Object Tracking</h3>
+            </div>
+            <div class="feature-item">
+                <img src="../webimg/int.jpg" alt="">
+                <h3>Integrated Application</h3>
+            </div>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy;Object Detection using YOLO Application By Siraj & Team
+    </footer>
+</body>
+
+</html>
